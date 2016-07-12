@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>PlanIt Login</title>
+
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/app.css' %}" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+    <div class="container-fluid">
+        <div class="row title">
+            <h2>Coordinate all your trips, right here</h2>
+        </div>
+        <div class="row">
+            <div id="login">
+                <div id="login_header">
+                    <h2>PlanIt</h2>
+                </div>
+                <br>
+                <form>
+                    <div class="row">
+                    <input placeholder="Username" type="text" name="username"/>
+                    </div>
+                    <br>
+                    <div class="row">
+                    <input placeholder="Password" type="text" name="password"/>
+                    </div>
+                </form>
+                <br>
+                <button id="signin_btn" class="btn btn-primary">Sign In</button>
+            </div>
+        </div>
+    </div>        
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </body>
+</html>

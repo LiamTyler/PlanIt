@@ -1,0 +1,41 @@
+#base_head {
+    background-color: #D1D1D1;
+    color: #46C5F0;
+}
+
+.row {
+    margin: 0 !important;
+}
+
+#base_head a {
+    font-size: 2rem;
+}
+
+#base_row {
+    height: 12rem;
+    max-width: 100rem;
+    margin: auto !important;
+    #border-width: 0 3px 0 3px;
+    #border-style: solid;
+    #border-color: black;
+}
+
+#base_row > div {
+    height: 100%;
+}
+
+#base_title {
+    font-size: 6rem;
+    color: #61BC36;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+#base_logo {
+    height: 100%;
+    float: left;
+}
+
+.no-pad {
+    padding: 0;
+}

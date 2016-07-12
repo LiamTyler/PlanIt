@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %} PlanIt Sign Up{% endblock title %}
+
+{% block css %}
+<link href="{% static 'css/app.css' %}" rel="stylesheet" type="text/css">
+{% endblock css %}
+
+{% block body %}
+<div class="container-fluid">
+  <div class="row title">
+    <h2>Get started planning all your new adventures</h2>
+  </div>
+  <div class="row">
+    <div id="login">
+      <div id="login_header">
+       <h2>Sign up</h2>
+      </div>
+      <br>
+      <form action="/accounts/create_user/" method="post">
+        {% csrf_token %}
+        <div class="row">
+          <input placeholder="Username" type="text" name="username" required >
+        </div>
+        {% if user_already_exists %}
+        <p class="error">Username already taken. Please select a different one</p>
+        {% endif %}
+        <br>
+        <div class="row">
+          <input placeholder="First Name" type="text" name="first_name" required >
+        </div>
+        <br>
+        <div class="row">
+          <input placeholder="Last Name" type="text" name="last_name" required >
+        </div>
+        <br>
+        <div class="row">
+          <input placeholder="Email" type="email" name="email" required >
+        </div>
+        <br>
+        <div class="row">
+          <input placeholder="Password" type="password" name="password" required >
+        </div>
+        <br>
+        <div class="row">
+          <input placeholder="Re-type password" type="password" name="password_retype" required >
+        </div>
+        {% if passwords_didnt_match %}
+        <p class="error">Passwords didn't match</p>
+        {% endif %}
+        <br>
+        {% if error_creating_user %}
+        <p class="error">Sorry, an error while creating your user. Please try again</p>
+        {% endif %}
+        <input type="submit" value="Sign Up" class="btn btn-primary">
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock body %}
