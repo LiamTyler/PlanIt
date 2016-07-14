@@ -23,10 +23,21 @@ input {
     font-size: 1.5rem;
 }
 
-.error {
-    color: red;
+.error_box {
+    width: 240px;
+    margin: auto;
+    padding: 20px;
+    background-color: red;
+    text-align: center;
 }
 
+.error {
+    font-size: 1.7rem;
+}
+
+#pass_match {
+    display: none;
+}
 #signin_btn {
     width: 20rem;
     height: 4rem;

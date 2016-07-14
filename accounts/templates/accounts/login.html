@@ -11,16 +11,18 @@
   <div class="row title">
     <h2>Coordinate all your trips, right here</h2>
   </div>
+  {% if error %}
+    <div class="error_box">
+      <p class="error">{{error}}</p>
+    </div>
+  {% endif %}
   <div class="row">
     <div id="login">
       <div id="login_header">
        <h2>Login</h2>
       </div>
       <br>
-      {% if failed_to_auth %}
-        <p class="error">Incorrect username and/or password</p>
-      {% endif %}
-      <form action="/accounts/auth_user/" method="post">
+      <form action="{% url 'accounts:login' %}" method="post">
         {% csrf_token %}
         <div class="row">
           <input placeholder="Username" type="text" name="username" required >
