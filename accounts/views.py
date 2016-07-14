@@ -5,6 +5,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
 
+import json
+
 def login_page(request):
     Username = request.POST.get('username')
     Password = request.POST.get('password')
@@ -43,13 +45,6 @@ def sign_up(request):
     else:
         Error = None
         try:
-            u = User.objects.get(username=Username)
-            Error = "User already exists"
-            return render(request, 'accounts/sign_up.html', dict(csrf(request),
-                                                                        error=Error))
-        except:
-            pass
-        try:
             u = User.objects.create_user(username=Username, first_name=First_name,
                                          last_name=Last_name, email=Email, password=Password)
         except:
@@ -73,5 +68,17 @@ def auth_and_login(request, Username, Password):
         except:
             return 'NoUser'  
     
-def logout(request):
-    pass
+def check_username(request):
+    if request.method == 'POST' and request.is_ajax():
+        Username = request.POST.get("username")
+        try:
+            u = User.objects.get(username=Username)
+            print("User exists")
+            status = False
+        except:
+            status = True
+            print("User DNE")
+            
+        return HttpResponse(json.dumps({'available': status}), content_type="application/json")
+    else:
+        return HttpResponse("Non post or non ajax request")

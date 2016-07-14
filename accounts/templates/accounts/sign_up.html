@@ -24,8 +24,9 @@
       <br>
       <form action="{% url 'accounts:sign_up' %}" method="post">
         {% csrf_token %}
+        <p id="username_available"></p>
         <div class="row">
-          <input placeholder="Username" type="text" name="username" required >
+          <input placeholder="Username" id="Username" type="text" name="username" required >
         </div>
         <br>
         <div class="row">

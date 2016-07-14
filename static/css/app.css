@@ -38,6 +38,11 @@ input {
 #pass_match {
     display: none;
 }
+
+#username_available {
+    display: none;
+}
+
 #signin_btn {
     width: 20rem;
     height: 4rem;

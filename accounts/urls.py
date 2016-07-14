@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout_then_login, name='logout'),
     url(r'^sign_up/', views.sign_up, name="sign_up"),
     url(r'^profile/', views.profile, name="profile"),
+    url(r'^check_username/', views.check_username, name="check_username"),
 ]
